@@ -45,18 +45,30 @@
         (setq buffer (car list))))
     (switch-to-buffer buffer)))
 
-(defun eclipse-kill-word (repeat)
-  "Redefine `backward-kill-word' to work as Eclipse does.
-
-Now stops at the beginning of the line, deleting only whitespace."
+(defun defunkt-kill-word (arg)
+  "Special version of kill-word which swallows spaces separate from words"
   (interactive "p")
-  (let (cnt)
-    (dotimes (cnt repeat)
-      (if (= (point) (save-excursion (beginning-of-line) (point)))
-          (kill-region (point) (save-excursion (backward-word) (point)))
-        (kill-region (point)
-                                 (max (save-excursion (beginning-of-line) (point))
-                                          (save-excursion (backward-word) (point))))))))
+
+  (let ((whitespace-regexp "\\s-+"))
+    (kill-region (point)
+                 (cond
+                  ((looking-at whitespace-regexp) (re-search-forward whitespace-regexp) (point))
+                  ((looking-at "\n") (kill-line) (defunkt-kill-word arg))
+                  (t (forward-word arg) (point))))))
+
+(defun defunkt-backward-kill-word (arg)
+  "Special version of backward-kill-word which swallows spaces separate from words"
+  (interactive "p")
+  (if (looking-back "\\s-+")
+      (kill-region (point) (progn (re-search-backward "\\S-") (forward-char 1) (point)))
+    (backward-kill-word arg)))
+
+(defun indent-whole-buffer ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
 
 
 (provide 'functions)

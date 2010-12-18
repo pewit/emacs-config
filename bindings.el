@@ -150,7 +150,8 @@
  )
 )
 
-
+;Formating
+(global-set-key (kbd "C-S-f") 'indent-whole-buffer)
 
 
 (provide 'bindings)
