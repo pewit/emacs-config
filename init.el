@@ -12,19 +12,19 @@
 (yas/initialize)
 (yas/load-directory (concat dotfiles-dir "snippets"))
 
-(vendor 'scala-mode)
-(require 'scala-mode-auto)
 
-(vendor 'smex)
-(require 'smex)
-(add-hook 'after-init-hook 'smex-initialize)
-
+;;Auto-completet
 (vendor 'auto-complete)
-(require 'auto-complete)
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories (concat dotfiles-dir "vendor/auto-complete/ac-dict"))
+(ac-config-default)
+(setq ac-auto-start nil)
+(ac-set-trigger-key "TAB")
 
 
 (require 'bindings)
+
+
 
 ;; OS specific settings
 (cond 
@@ -39,10 +39,6 @@
 (require 'misc)
 (require 'display)
 (require 'hooks)
-
-
-;; Load key bingings
-;(load (concat dotfiles-dir "bindings.el"))
 
 
 (provide 'init)

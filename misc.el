@@ -1,3 +1,7 @@
+;completion minibuffer
+(icomplete-mode 99)
+
+
 ;; highlight the selected region
 (transient-mark-mode 1)
  

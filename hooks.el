@@ -18,5 +18,27 @@
 ))
 
 
+(add-hook 'emacs-lisp-mode-hook
+	'(lambda ()
+	     (yas/minor-mode-on)
+	     (local-set-key (kbd "M-r") 'eval-region)
+))
+
+(add-hook 'ruby-mode-hook
+	'(lambda ()
+	     (yas/minor-mode-on)
+	     (local-set-key (kbd "RET") 'newline-and-indent)
+	     (set-pairs '("(" "{" "[" "\"" "\'"))
+	     (setq ac-auto-start nil)
+	     (auto-complete-mode t)
+	     (ac-set-trigger-key "TAB")
+	     (local-set-key (kbd "C-SPC") 'auto-complete)
+))
+
+
+
+
+
+
 
 (provide 'hooks)

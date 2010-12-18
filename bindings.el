@@ -39,103 +39,71 @@
 (global-unset-key (kbd "C-s"))
 (global-unset-key (kbd "C-S"))
 
+(global-unset-key (kbd "M-d"))
+
+
 ;; Movements
 
 ; Move between windows with shift+arrows
-; (windmove-default-keybindings)
 (windmove-default-keybindings 'meta)
 
-; Backward Char
-(global-set-key (kbd "M-j") 'backward-char)
+;buffer movement
+(global-set-key (kbd "M-S-<left>") 'backward-buffer)
+(global-set-key (kbd "M-S-<right>") 'forward-buffer)
 
-; Forward Char
-(global-set-key (kbd "M-l") 'forward-char)
-
-; Previouse Line
-(global-set-key (kbd "M-i") 'previous-line)
-
-; Next Line
-(global-set-key (kbd "M-k") 'next-line)
 
 ; Beginnig of line
-(global-set-key (kbd "M-u") 'beginning-of-line)
-(global-set-key (kbd "<home>") 'beginning-of-line)
-
+(global-set-key (kbd "C-M-<left>") 'beginning-of-line)
 
 ; End of line
-(global-set-key (kbd "M-o") 'end-of-line)
-(global-set-key (kbd "<end>") 'end-of-line)
-
-; Backward word
-(global-set-key (kbd "M-J") 'backward-word)
-
-; Forward word
-(global-set-key (kbd "M-L") 'forward-word)
-
-; Backward Paragraph
-(global-set-key (kbd "M-I") 'backward-paragraph)
-
-; Forward Paragraph
-(global-set-key (kbd "M-K") 'forward-paragraph)
+(global-set-key (kbd "C-M-<right>") 'end-of-line)
 
 ; Beginning of buffer
-(global-set-key (kbd "M-U") 'beginning-of-buffer)
-(global-set-key (kbd "C-<home>") 'beginning-of-buffer)
+(global-set-key (kbd "C-M-<up>") 'beginning-of-buffer)
 
 ; End of Buffer
-(global-set-key (kbd "M-O") 'end-of-buffer)
-(global-set-key (kbd "C-<end>") 'end-of-buffer)
-
-
-;;Editing
-
-; Delete Char
-(global-set-key (kbd "M-f") 'delete-char)
-(global-set-key (kbd "<delete>") 'delete-char)
-(global-set-key (kbd "<kp-delete>") 'delete-char)
-
-; delete-backward-char
-(global-set-key (kbd "M-d") 'delete-backward-char)
-
-; Kill Word
-(global-set-key (kbd "M-r") 'kill-word)
-(global-set-key (kbd "C-<delete>") 'kill-word)
-(global-set-key (kbd "C-<kp-delete>") 'kill-word)
-
-; Backward-kill-word
-(global-set-key (kbd "M-e") 'backward-kill-word)
-(global-set-key (kbd "C-<backspace>") 'backward-kill-word)
+(global-set-key (kbd "C-M-<down>") 'end-of-buffer)
 
 ; Undo - Redo
 (global-set-key (kbd "M-y") 'undo)
-(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "M-z") 'undo)
 
 ; Mark all
-(global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "M-a") 'mark-whole-buffer)
+
+
+;delete
+(global-set-key (kbd "<kp-delete>") 'delete-char)
+
+;delete word
+(global-set-key (kbd "C-<backspace>") 'defunkt-backward-kill-word)
+
+(global-set-key (kbd "C-<kp-delete>") 'defunkt-kill-word)
+
 
 
 ;; Copy, Cut, Paste
 
 ; Kill region (cut)
-(global-set-key (kbd "C-x") 'kill-region)
+(global-set-key (kbd "M-x") 'kill-region)
 
 ; Kill Ring Save (copy)
-(global-set-key (kbd "C-c") 'kill-ring-save)
+(global-set-key (kbd "M-c") 'kill-ring-save)
 
 ; Yank (paste)
-(global-set-key (kbd "C-v") 'yank)
+(global-set-key (kbd "M-v") 'yank)
 
 
 ;; File Management
 
 ; Open File
-(global-set-key (kbd "C-o") 'find-file)
+(global-set-key (kbd "M-o") 'find-file)
 
 ; Save As
-(global-set-key (kbd "C-S") 'write-file)
+(global-set-key (kbd "M-S") 'write-file)
 
 ; Save File
-(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "M-s") 'save-buffer)
 
 
 ;; Emacs stuff
@@ -152,6 +120,10 @@
 ; Delete window
 (global-set-key (kbd "M-w") 'delete-window)
 
+; delete-other-windows
+(global-set-key (kbd "C-<return>") 'delete-other-windows)
+
+
 ; Kill Buffer
 (global-set-key (kbd "M-W") 'kill-buffer)
 
@@ -166,14 +138,17 @@
 (global-set-key (kbd "M-6") 'shrink-window-horizontally)
 
 ; Execute Command
-(global-set-key (kbd "M-x") 'execute-extended-command)
-
-(global-set-key (kbd "M-A") 'smex-major-mode-commands)
-(global-set-key (kbd "M-a") 'smex)
-
+(global-set-key (kbd "C-x") 'execute-extended-command)
 
 ; Searching
-(global-set-key (kbd "C-f") 'isearch-forward)
+(global-set-key (kbd "M-f") 'isearch-forward)
+(global-set-key (kbd "M-F") 'isearch-backward)
+(add-hook 'isearch-mode-hook
+ (lambda ()
+ (define-key isearch-mode-map (kbd "M-f") 'isearch-repeat-forward)
+ (define-key isearch-mode-map (kbd "M-F") 'isearch-repeat-backward)
+ )
+)
 
 
 

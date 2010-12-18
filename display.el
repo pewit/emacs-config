@@ -4,7 +4,7 @@
 
 (vendor 'color-theme)
 (color-theme-initialize)
-(color-theme-bharadwaj-slate)
+(color-theme-taming-mr-arneson)
 
 
 (set-frame-parameter (selected-frame) 'alpha '(97 80))

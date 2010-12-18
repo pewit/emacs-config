@@ -24,5 +24,39 @@
           pairs)
   (setq skeleton-pair t))
 
+(defun backward-buffer () (interactive)
+  "Switch to previously selected buffer."
+  (let* ((list (cdr (buffer-list)))
+         (buffer (car list)))
+    (while (and (cdr list) (string-match "\\*" (buffer-name buffer)))
+      (progn
+        (setq list (cdr list))
+        (setq buffer (car list))))
+    (bury-buffer)
+    (switch-to-buffer buffer)))
+
+(defun forward-buffer () (interactive)
+  "Opposite of backward-buffer."
+  (let* ((list (reverse (buffer-list)))
+         (buffer (car list)))
+    (while (and (cdr list) (string-match "\\*" (buffer-name buffer)))
+      (progn
+        (setq list (cdr list))
+        (setq buffer (car list))))
+    (switch-to-buffer buffer)))
+
+(defun eclipse-kill-word (repeat)
+  "Redefine `backward-kill-word' to work as Eclipse does.
+
+Now stops at the beginning of the line, deleting only whitespace."
+  (interactive "p")
+  (let (cnt)
+    (dotimes (cnt repeat)
+      (if (= (point) (save-excursion (beginning-of-line) (point)))
+          (kill-region (point) (save-excursion (backward-word) (point)))
+        (kill-region (point)
+                                 (max (save-excursion (beginning-of-line) (point))
+                                          (save-excursion (backward-word) (point))))))))
+
 
 (provide 'functions)
