@@ -22,6 +22,10 @@
 	'(lambda ()
 	     (yas/minor-mode-on)
 	     (local-set-key (kbd "M-r") 'eval-region)
+	     (setq ac-auto-start nil)
+	     (auto-complete-mode t)
+	     (ac-set-trigger-key "TAB")
+	     (local-set-key (kbd "C-SPC") 'auto-complete)
 ))
 
 (add-hook 'ruby-mode-hook
@@ -33,11 +37,8 @@
 	     (auto-complete-mode t)
 	     (ac-set-trigger-key "TAB")
 	     (local-set-key (kbd "C-SPC") 'auto-complete)
+	     (linum-mode)
 ))
-
-
-
-
 
 
 

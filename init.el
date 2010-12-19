@@ -13,13 +13,20 @@
 (yas/load-directory (concat dotfiles-dir "snippets"))
 
 
+;;Flymake ruby
+(vendor 'flymake-ruby)
+(require 'flymake-ruby)
+
+;Line numbering
+(vendor 'linum)
+(require 'linum)
+
 ;;Auto-completet
 (vendor 'auto-complete)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat dotfiles-dir "vendor/auto-complete/ac-dict"))
 (ac-config-default)
 (setq ac-auto-start nil)
-(ac-set-trigger-key "TAB")
 
 
 (require 'bindings)

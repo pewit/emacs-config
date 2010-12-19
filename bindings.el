@@ -44,38 +44,38 @@
 
 ;; Movements
 
-; Move between windows with shift+arrows
+;; Move between windows with shift+arrows
 (windmove-default-keybindings 'meta)
 
-;buffer movement
+;;buffer movement
 (global-set-key (kbd "M-S-<left>") 'backward-buffer)
 (global-set-key (kbd "M-S-<right>") 'forward-buffer)
 
 
-; Beginnig of line
+;;Beginnig of line
 (global-set-key (kbd "C-M-<left>") 'beginning-of-line)
 
-; End of line
+;; End of line
 (global-set-key (kbd "C-M-<right>") 'end-of-line)
 
-; Beginning of buffer
+;; Beginning of buffer
 (global-set-key (kbd "C-M-<up>") 'beginning-of-buffer)
 
-; End of Buffer
+;; End of Buffer
 (global-set-key (kbd "C-M-<down>") 'end-of-buffer)
 
-; Undo - Redo
+;; Undo - Redo
 (global-set-key (kbd "M-y") 'undo)
 (global-set-key (kbd "M-z") 'undo)
 
-; Mark all
+;; Mark all
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
 
 
-;delete
+;;delete
 (global-set-key (kbd "<kp-delete>") 'delete-char)
 
-;delete word
+;;delete word
 (global-set-key (kbd "C-<backspace>") 'defunkt-backward-kill-word)
 
 (global-set-key (kbd "C-<kp-delete>") 'defunkt-kill-word)
@@ -84,74 +84,77 @@
 
 ;; Copy, Cut, Paste
 
-; Kill region (cut)
+;; Kill region (cut)
 (global-set-key (kbd "M-x") 'kill-region)
 
-; Kill Ring Save (copy)
+;; Kill Ring Save (copy)
 (global-set-key (kbd "M-c") 'kill-ring-save)
 
-; Yank (paste)
+;; Yank (paste)
 (global-set-key (kbd "M-v") 'yank)
 
 
 ;; File Management
 
-; Open File
+;; Open File
 (global-set-key (kbd "M-o") 'find-file)
 
-; Save As
+;; Save As
 (global-set-key (kbd "M-S") 'write-file)
 
-; Save File
+;; Save File
 (global-set-key (kbd "M-s") 'save-buffer)
 
 
 ;; Emacs stuff
 
-; Set Mark
+;; Set Mark
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 
-; Switch to buffer
+;; Switch to buffer
 (global-set-key (kbd "M-b") 'switch-to-buffer)
 
-; Buffer menu
+;; Buffer menu
 (global-set-key (kbd "M-B") 'buffer-menu)
 
-; Delete window
+;; Delete window
 (global-set-key (kbd "M-w") 'delete-window)
 
-; delete-other-windows
+;; delete-other-windows
 (global-set-key (kbd "C-<return>") 'delete-other-windows)
 
 
-; Kill Buffer
+;; Kill Buffer
 (global-set-key (kbd "M-W") 'kill-buffer)
 
-; Window Management
+;; Window Management
 (global-set-key (kbd "M-1") 'split-window-vertically)
 (global-set-key (kbd "M-2") 'split-window-horizontally)
- 
-; Window resizing
+
+;; Window resizing
 (global-set-key (kbd "M-3") 'enlarge-window)
 (global-set-key (kbd "M-4") 'shrink-window)
 (global-set-key (kbd "M-5") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-6") 'shrink-window-horizontally)
 
-; Execute Command
+                                        ; Execute Command
 (global-set-key (kbd "C-x") 'execute-extended-command)
 
-; Searching
+;; Searching
 (global-set-key (kbd "M-f") 'isearch-forward)
 (global-set-key (kbd "M-F") 'isearch-backward)
 (add-hook 'isearch-mode-hook
- (lambda ()
- (define-key isearch-mode-map (kbd "M-f") 'isearch-repeat-forward)
- (define-key isearch-mode-map (kbd "M-F") 'isearch-repeat-backward)
- )
-)
+          (lambda ()
+            (define-key isearch-mode-map (kbd "M-f") 'isearch-repeat-forward)
+            (define-key isearch-mode-map (kbd "M-F") 'isearch-repeat-backward)
+            )
+          )
 
-;Formating
+;;Formating
 (global-set-key (kbd "C-S-f") 'indent-whole-buffer)
+
+;;Commenting
+(global-set-key (kbd "C-S-c") 'comment-or-uncomment-region)
 
 
 (provide 'bindings)
