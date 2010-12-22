@@ -156,6 +156,9 @@
 ;;Commenting
 (global-set-key (kbd "C-S-c") 'comment-or-uncomment-region)
 
+;;Font-Size
+(global-set-key (kbd "M-+") 'sacha/increase-font-size)
+(global-set-key (kbd "M--") 'sacha/decrease-font-size)
 
 (provide 'bindings)
 

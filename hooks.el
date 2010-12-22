@@ -37,7 +37,6 @@
 	     (auto-complete-mode t)
 	     (ac-set-trigger-key "TAB")
 	     (local-set-key (kbd "C-SPC") 'auto-complete)
-	     (linum-mode)
 ))
 
 

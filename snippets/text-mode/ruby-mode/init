@@ -1,0 +1,5 @@
+#name : def initialize "..." end
+# --
+def initialize 
+  $0
+end
