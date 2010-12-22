@@ -32,7 +32,7 @@
 	'(lambda ()
 	     (yas/minor-mode-on)
 	     (local-set-key (kbd "RET") 'newline-and-indent)
-	     (set-pairs '("(" "{" "[" "\"" "\'"))
+	     (set-pairs '("(" "{" "[" "\"" "\'" "|"))
 	     (setq ac-auto-start nil)
 	     (auto-complete-mode t)
 	     (ac-set-trigger-key "TAB")
