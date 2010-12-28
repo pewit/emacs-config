@@ -7,19 +7,25 @@
 
 (require 'functions)
 
+
 ;;Yasnippets
 (vendor 'yasnippet)
 (yas/initialize)
 (yas/load-directory (concat dotfiles-dir "snippets"))
 
-
 ;;Flymake ruby
 (vendor 'flymake-ruby)
 (require 'flymake-ruby)
 
-;Line numbering
+;; Line numbering
 (vendor 'linum)
 (require 'linum)
+
+;; Mark Lines
+
+(vendor 'mark-lines)
+(require 'mark-lines)
+
 
 ;;Auto-completet
 (vendor 'auto-complete)
@@ -27,6 +33,9 @@
 (add-to-list 'ac-dictionary-directories (concat dotfiles-dir "vendor/auto-complete/ac-dict"))
 (ac-config-default)
 (setq ac-auto-start nil)
+
+
+
 
 
 (require 'bindings)

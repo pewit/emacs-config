@@ -1,5 +1,6 @@
 ;; Unset keys
 
+
 (global-unset-key (kbd "C-b"))
 (global-unset-key (kbd "M-j"))
 (global-unset-key (kbd "C-f"))
@@ -38,39 +39,21 @@
 (global-unset-key (kbd "C-o"))
 (global-unset-key (kbd "C-s"))
 (global-unset-key (kbd "C-S"))
-
 (global-unset-key (kbd "M-d"))
-
 
 ;; Movements
 
-;; Move between windows with shift+arrows
-(windmove-default-keybindings 'meta)
-
-;;buffer movement
-(global-set-key (kbd "M-S-<left>") 'backward-buffer)
-(global-set-key (kbd "M-S-<right>") 'forward-buffer)
-
-
 ;;Beginnig of line
-(global-set-key (kbd "C-M-<left>") 'beginning-of-line)
+(global-set-key (kbd "M-<left>") 'beginning-of-line)
 
 ;; End of line
-(global-set-key (kbd "C-M-<right>") 'end-of-line)
+(global-set-key (kbd "M-<right>") 'end-of-line)
 
 ;; Beginning of buffer
-(global-set-key (kbd "C-M-<up>") 'beginning-of-buffer)
+(global-set-key (kbd "M-<up>") 'beginning-of-buffer)
 
 ;; End of Buffer
-(global-set-key (kbd "C-M-<down>") 'end-of-buffer)
-
-;; Undo - Redo
-(global-set-key (kbd "M-y") 'undo)
-(global-set-key (kbd "M-z") 'undo)
-
-;; Mark all
-(global-set-key (kbd "M-a") 'mark-whole-buffer)
-
+(global-set-key (kbd "M-<down>") 'end-of-buffer)
 
 ;;delete
 (global-set-key (kbd "<kp-delete>") 'delete-char)
@@ -80,6 +63,32 @@
 
 (global-set-key (kbd "C-<kp-delete>") 'defunkt-kill-word)
 
+
+;; Undo - Redo
+(global-set-key (kbd "M-y") 'undo)
+(global-set-key (kbd "M-z") 'undo)
+
+;; Mark all
+(global-set-key (kbd "M-a") 'mark-whole-buffer)
+
+;; Mark line
+(global-set-key (kbd "C-M-S-<left>") 'mark-lines-previous-line)
+(global-set-key (kbd "C-M-S-<right>") 'mark-lines-next-line)
+
+
+;; Move between windows with shift+arrows
+;; (windmove-default-keybindings 'meta)
+(global-set-key (kbd "M-o") 'select-previous-window)
+(global-set-key (kbd "M-p") 'select-next-window)
+(global-set-key (kbd "C-o") 'select-previous-window)
+(global-set-key (kbd "C-p") 'select-next-window)
+
+
+;;buffer movement
+(global-set-key (kbd "C-ä") 'backward-buffer)
+(global-set-key (kbd "C-$") 'forward-buffer)
+(global-set-key (kbd "M-ä") 'backward-buffer)
+(global-set-key (kbd "M-$") 'forward-buffer)
 
 
 ;; Copy, Cut, Paste
@@ -137,8 +146,11 @@
 (global-set-key (kbd "M-5") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-6") 'shrink-window-horizontally)
 
-                                        ; Execute Command
+;; Execute Command
 (global-set-key (kbd "C-x") 'execute-extended-command)
+(global-set-key (kbd "C-a") 'execute-extended-command)
+(global-set-key (kbd "C-q") 'keyboard-quit)
+
 
 ;; Searching
 (global-set-key (kbd "M-f") 'isearch-forward)
