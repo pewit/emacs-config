@@ -7,7 +7,8 @@
 (color-theme-taming-mr-arneson)
 
 
-(set-frame-parameter (selected-frame) 'alpha '(97 80))
-(add-to-list 'default-frame-alist '(alpha 97 80))
+(set-frame-parameter (selected-frame) 'alpha '(90 80))
+
+(add-to-list 'default-frame-alist '(alpha 90 80))
 
 (provide 'display)

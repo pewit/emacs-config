@@ -1,45 +1,45 @@
 ;; Unset keys
 
 
-(global-unset-key (kbd "C-b"))
-(global-unset-key (kbd "M-j"))
-(global-unset-key (kbd "C-f"))
-(global-unset-key (kbd "M-l"))
-(global-unset-key (kbd "C-p"))
-(global-unset-key (kbd "M-i"))
-(global-unset-key (kbd "C-n"))
-(global-unset-key (kbd "M-k"))
-(global-unset-key (kbd "C-a"))
-(global-unset-key (kbd "M-u"))
-(global-unset-key (kbd "C-e"))
-(global-unset-key (kbd "M-o"))
-(global-unset-key (kbd "C-b"))
-(global-unset-key (kbd "M-J"))
-(global-unset-key (kbd "M-f"))
-(global-unset-key (kbd "M-L"))
-(global-unset-key (kbd "M-I"))
-(global-unset-key (kbd "M-K"))
-(global-unset-key (kbd "M-<"))
-(global-unset-key (kbd "M-U"))
-(global-unset-key (kbd "M->"))
-(global-unset-key (kbd "M-O"))
-(global-unset-key (kbd "C-d"))
-(global-unset-key (kbd "M-f"))
-(global-unset-key (kbd "<delete>"))
-(global-unset-key (kbd "M-r"))
-(global-unset-key (kbd "C-x h"))
-(global-unset-key (kbd "C-a"))
-(global-unset-key (kbd "C-w"))
-(global-unset-key (kbd "C-x"))
-(global-unset-key (kbd "M-w"))
-(global-unset-key (kbd "C-c"))
-(global-unset-key (kbd "C-y"))
-(global-unset-key (kbd "M-x"))
-(global-unset-key (kbd "C-SPC"))
-(global-unset-key (kbd "C-o"))
-(global-unset-key (kbd "C-s"))
-(global-unset-key (kbd "C-S"))
-(global-unset-key (kbd "M-d"))
+;; (global-unset-key (kbd "C-b"))
+;; (global-unset-key (kbd "M-j"))
+;; (global-unset-key (kbd "C-f"))
+;; (global-unset-key (kbd "M-l"))
+;; (global-unset-key (kbd "C-p"))
+;; (global-unset-key (kbd "M-i"))
+;; (global-unset-key (kbd "C-n"))
+;; (global-unset-key (kbd "M-k"))
+;; (global-unset-key (kbd "C-a"))
+;; (global-unset-key (kbd "M-u"))
+;; (global-unset-key (kbd "C-e"))
+;; (global-unset-key (kbd "M-o"))
+;; (global-unset-key (kbd "C-b"))
+;; (global-unset-key (kbd "M-J"))
+;; (global-unset-key (kbd "M-f"))
+;; (global-unset-key (kbd "M-L"))
+;; (global-unset-key (kbd "M-I"))
+;; (global-unset-key (kbd "M-K"))
+;; (global-unset-key (kbd "M-<"))
+;; (global-unset-key (kbd "M-U"))
+;; (global-unset-key (kbd "M->"))
+;; (global-unset-key (kbd "M-O"))
+;; (global-unset-key (kbd "C-d"))
+;; (global-unset-key (kbd "M-f"))
+;; (global-unset-key (kbd "<delete>"))
+;; (global-unset-key (kbd "M-r"))
+;; (global-unset-key (kbd "C-x h"))
+;; (global-unset-key (kbd "C-a"))
+;; (global-unset-key (kbd "C-w"))
+;; (global-unset-key (kbd "C-x"))
+;; (global-unset-key (kbd "M-w"))
+;; (global-unset-key (kbd "C-c"))
+;; (global-unset-key (kbd "C-y"))
+;; (global-unset-key (kbd "M-x"))
+;; (global-unset-key (kbd "C-SPC"))
+;; (global-unset-key (kbd "C-o"))
+;; (global-unset-key (kbd "C-s"))
+;; (global-unset-key (kbd "C-S"))
+;; (global-unset-key (kbd "M-d"))
 
 ;; Movements
 
@@ -78,17 +78,13 @@
 
 ;; Move between windows with shift+arrows
 ;; (windmove-default-keybindings 'meta)
-(global-set-key (kbd "M-o") 'select-previous-window)
-(global-set-key (kbd "M-p") 'select-next-window)
-(global-set-key (kbd "C-o") 'select-previous-window)
-(global-set-key (kbd "C-p") 'select-next-window)
+(global-set-key (kbd "C-M-<up>") 'select-previous-window)
+(global-set-key (kbd "C-M-<down>") 'select-next-window)
 
 
 ;;buffer movement
-(global-set-key (kbd "C-ä") 'backward-buffer)
-(global-set-key (kbd "C-$") 'forward-buffer)
-(global-set-key (kbd "M-ä") 'backward-buffer)
-(global-set-key (kbd "M-$") 'forward-buffer)
+(global-set-key (kbd "C-M-<left>") 'backward-buffer)
+(global-set-key (kbd "C-M-<right>") 'forward-buffer)
 
 
 ;; Copy, Cut, Paste
@@ -147,7 +143,6 @@
 (global-set-key (kbd "M-6") 'shrink-window-horizontally)
 
 ;; Execute Command
-(global-set-key (kbd "C-x") 'execute-extended-command)
 (global-set-key (kbd "C-a") 'execute-extended-command)
 (global-set-key (kbd "C-q") 'keyboard-quit)
 
@@ -171,6 +166,11 @@
 ;;Font-Size
 (global-set-key (kbd "M-+") 'sacha/increase-font-size)
 (global-set-key (kbd "M--") 'sacha/decrease-font-size)
+
+;;Full Screen
+(global-set-key (kbd "C-f") 'ns-toggle-fullscreen)
+
+
 
 (provide 'bindings)
 
