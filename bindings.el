@@ -60,8 +60,12 @@
 
 ;;delete word
 (global-set-key (kbd "C-<backspace>") 'defunkt-backward-kill-word)
-
 (global-set-key (kbd "C-<kp-delete>") 'defunkt-kill-word)
+
+
+;;delete line
+(global-set-key (kbd "C-M-<backspace>") 'kill-line)
+(global-set-key (kbd "C-M-<delete>") 'kill-line)
 
 
 ;; Undo - Redo
@@ -83,8 +87,8 @@
 
 
 ;;buffer movement
-(global-set-key (kbd "C-M-<left>") 'backward-buffer)
-(global-set-key (kbd "C-M-<right>") 'forward-buffer)
+(global-set-key (kbd "C-M-<left>") 'previous-buffer)
+(global-set-key (kbd "C-M-<right>") 'next-buffer)
 
 
 ;; Copy, Cut, Paste

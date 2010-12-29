@@ -1,11 +1,11 @@
 ;; Functions
 
-; for loading libraries in from the vendor directory
+                                        ; for loading libraries in from the vendor directory
 (defun vendor (library)
-  (let* ((file (symbol-name library)) 
-         (normal (concat dotfiles-dir "vendor/" file)) 
+  (let* ((file (symbol-name library))
+         (normal (concat dotfiles-dir "vendor/" file))
          (suffix (concat normal ".el")))
-    (cond 
+    (cond
      ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
      ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
      ((file-exists-p suffix) (require library)))))
@@ -75,7 +75,7 @@
   (interactive
    (if mark-active (list (region-beginning) (region-end))
      (list (line-beginning-position)
-	   (line-beginning-position 2)))))
+           (line-beginning-position 2)))))
 
 
 (defun sacha/increase-font-size ()
@@ -91,19 +91,25 @@
                       nil
                       :height
                       (floor (* 0.9
-                                  (face-attribute 'default :height)))))
+                                (face-attribute 'default :height)))))
 
 
 (defun select-next-window ()
-  "Switch to the next window" 
+  "Switch to the next window"
   (interactive)
   (select-window (next-window)))
 
 (defun select-previous-window ()
-  "Switch to the previous window" 
+  "Switch to the previous window"
   (interactive)
   (select-window (previous-window)))
 
+(defun senny-ruby-compilation-this-buffer ()
+  (interactive)
+  (save-buffer)
+  (let ((origin (current-buffer)))
+    (ruby-compilation-this-buffer)
+    (pop-to-buffer origin)))
 
 
 (provide 'functions)

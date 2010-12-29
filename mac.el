@@ -1,4 +1,4 @@
-; Some OSX specific settings
+;; Some OSX specific settings
 
 (setq mac-option-key-is-meta nil)
 (setq mac-command-key-is-meta t)
@@ -8,8 +8,14 @@
 
 (global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
 
+(setenv "PATH"
+        (concat
+         "/usr/local/bin" ":"
+         (getenv "PATH")
+         )
+        )
 
-
+(setq exec-path (append '("/usr/local/bin") exec-path ))
 
 (provide 'mac)
 
